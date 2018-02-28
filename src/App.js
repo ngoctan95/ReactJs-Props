@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Product from './components/Product'
 class App extends Component {
+
+  onClickNewProduct=()=>{
+    console.log(this.refs.name.value);
+    this.refs.name.value="";
+  }
   onClick(){
     alert("Clicked me")
   }
@@ -41,8 +46,17 @@ class App extends Component {
         </nav>
 
         <div className="container">
-
           <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">      
+                <div className="form-group">
+                  <label >Thêm sản phẩm</label>
+                  <input type="text" className="form-control" id="" placeholder="Nhập tên sản phẩm" ref="name"/>
+              </div>
+              
+              <button type="button" className="btn btn-default" onClick={this.onClickNewProduct}>Lưu</button>
+              
+            </div>
+            
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               {elements}
             </div>
